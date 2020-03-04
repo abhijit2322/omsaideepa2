@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.simplifiedcoding.navigationdrawerexample">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Enter_Maintance_cost"></activity>
+        <activity android:name=".Edit_Renter_Profile" />
+        <activity android:name=".Profile_Renter_Activity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ActivityItemCreator" />
+        <activity android:name=".PdfMainActivity" /> <!-- <activity android:name=".OwnerListActivity" /> -->
+        <activity android:name=".DBCheckActivty" />
+        <activity android:name=".RenterListActivity" /> <!-- <activity android:name=".PdfDisplayActivity"></activity> -->
+        <activity android:name=".OwnerListActivity" /> <!-- <Testing Phase++> -->
+        <activity android:name=".RenterListActivity_Test" />
+        <activity android:name=".Profile_MainActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".Owner_Profile_Activity" />
+        <activity android:name=".Profile_Owner_Activity" />
+        <activity android:name=".Edit_Owner_Profile" />
+        <activity android:name=".Enter_Maintance_cost" />
+
+
+    </application>
+
+</manifest>
