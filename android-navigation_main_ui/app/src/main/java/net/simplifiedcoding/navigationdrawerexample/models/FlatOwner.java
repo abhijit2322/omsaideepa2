@@ -24,6 +24,27 @@ public class FlatOwner {
    String maintaincepaid;
    
    String email;
+   String isrented;
+
+   String mntcaretaker;
+
+   public String getIsrented() {
+      return isrented;
+   }
+
+   public void setIsrented(String isrented) {
+      this.isrented = isrented;
+   }
+
+   public String getMntcaretaker() {
+      return mntcaretaker;
+   }
+
+   public void setMntcaretaker(String mntcaretaker) {
+      this.mntcaretaker = mntcaretaker;
+   }
+
+
  
    /**
     * Constructor
@@ -31,13 +52,15 @@ public class FlatOwner {
    public FlatOwner() {
    }
    
-   public FlatOwner(int id, String ownername, String flatnumber, String ownercontactno, String maintaincepaid, String email) {
+   public FlatOwner(int id, String ownername, String flatnumber, String ownercontactno, String maintaincepaid, String email,String isrented,String mntcaretaker) {
        this.id = id;
        this.ownername = ownername;
        this.flatnumber = flatnumber;
        this.ownercontactno = ownercontactno;
        this.maintaincepaid = maintaincepaid;
        this.email = email;
+       this.isrented=isrented;
+       this.mntcaretaker=mntcaretaker;
    }
  
    /**

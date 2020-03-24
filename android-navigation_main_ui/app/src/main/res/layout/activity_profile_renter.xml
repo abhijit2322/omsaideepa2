@@ -40,31 +40,52 @@
                 android:layout_marginRight="@dimen/margin10"
                 android:layout_marginTop="@dimen/margin25"
                 android:layout_marginBottom="@dimen/margin10">
+
                 <LinearLayout
+                    android:id="@+id/name_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/margin10"
-                    android:paddingBottom="@dimen/margin10"
-                    android:paddingLeft="@dimen/margin90"
-                    android:paddingRight="@dimen/margin10"
+                    android:background="@color/transparentWhiteMed"
                     android:orientation="vertical"
-                    android:id="@+id/name_layout"
-                    android:background="@color/transparentWhiteMed">
+                    android:paddingLeft="@dimen/margin90"
+                    android:paddingTop="@dimen/margin10"
+                    android:paddingRight="@dimen/margin10"
+                    android:paddingBottom="@dimen/margin10">
+
                     <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/renter_name"
-                        android:textSize="@dimen/sTitleSub"
-                        android:textColor="@color/textMedHeavy"/>
-                    <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/sTitleSub2"
-                        android:textStyle="italic"
-                        android:id="@+id/renter_flatnumber"
                         android:textColor="@color/textMedHeavy"
-                        android:layout_marginTop="@dimen/margin2"/>
+                        android:textSize="@dimen/sTitleSub" />
+
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/renter_flatnumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin2"
+                        android:textColor="@color/textMedHeavy"
+                        android:textSize="@dimen/sTitleSub2"
+                        android:textStyle="italic" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/checkbox_level"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:text="Maintance paid for this month ?" />
+
+                        <CheckBox
+                            android:id="@+id/maintance_paid"
+                            android:layout_width="129dp"
+                            android:layout_height="50dp"
+                            android:layout_toRightOf="@+id/checkbox_level"
+                             />
+                    </RelativeLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

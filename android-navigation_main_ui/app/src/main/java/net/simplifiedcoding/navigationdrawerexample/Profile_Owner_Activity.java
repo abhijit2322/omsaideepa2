@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import net.simplifiedcoding.navigationdrawerexample.constants.GlobalVariables;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -65,13 +67,35 @@ public class Profile_Owner_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    Intent opa = new Intent(v.getContext(), Edit_Owner_Profile.class);
+                    if(GlobalVariables.GetRule().contains("admin")) {
+                        System.out.println("GlobalVariables -rule  (Profile_Owner_Activity)>>>>>>>>>>>>>>>>>>     admin");
 
-                    opa.putExtra("ownername", owner_name.getText());
-                    opa.putExtra("flatnumber", owner_flatnumner.getText());
-                    opa.putExtra("ownerphonno", owner_phone.getText());
-                    opa.putExtra("owneremailid", owner_email.getText());
-                    v.getContext().startActivity(opa);
+                        Intent opa = new Intent(v.getContext(), Edit_Owner_Profile.class);
+
+                        opa.putExtra("ownername", owner_name.getText());
+                        opa.putExtra("flatnumber", owner_flatnumner.getText());
+                        opa.putExtra("ownerphonno", owner_phone.getText());
+                        opa.putExtra("owneremailid", owner_email.getText());
+                        v.getContext().startActivity(opa);
+
+                    }
+                    else if(GlobalVariables.GetRule().contains("owner")) {
+
+                        System.out.println("GlobalVariables -rule>>>>>>>>>>>>>>>>>>(Profile_Owner_Activity)     owner ");
+                        Intent opa = new Intent(v.getContext(), Tenent_Update_Activity.class);
+                        opa.putExtra("ownername", owner_name.getText());
+                        opa.putExtra("flatnumber", owner_flatnumner.getText());
+                        opa.putExtra("ownerphonno", owner_phone.getText());
+                        opa.putExtra("owneremailid", owner_email.getText());
+                        v.getContext().startActivity(opa);
+                    }
+                    else
+                    {
+
+                        System.out.println("GlobalVariables -rule>>>>>>>>>>>>>>>>>>(Profile_Renter_Activity)     Nowhere ");
+                        Intent ir = new Intent(getApplicationContext(), NoWhereActivity.class);
+                        startActivity(ir);
+                    }
                     //startActivity(new Intent(getApplicationContext(), Edit_Owner_Profile.class));
                 }
             });

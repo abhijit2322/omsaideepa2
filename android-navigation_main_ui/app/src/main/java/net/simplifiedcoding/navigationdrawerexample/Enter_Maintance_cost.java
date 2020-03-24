@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +15,20 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import net.simplifiedcoding.navigationdrawerexample.models.FlatOwner;
+import net.simplifiedcoding.navigationdrawerexample.models.MonthlyExpence;
+import net.simplifiedcoding.navigationdrawerexample.service.HerokuService;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class Enter_Maintance_cost extends AppCompatActivity {
     ListView lv;
     ArrayAdapter<String> adapter;
@@ -21,9 +36,14 @@ public class Enter_Maintance_cost extends AppCompatActivity {
     Dialog d;
 
     String Pdf_string="";
+    List<String> item_name=new ArrayList();
+    List<String> item_cost=new ArrayList();
+    String Month_year="";
     int startingbalance=0;
     int total_expnd=0;
     int remainingcost=0;
+    MonthlyExpence monthlyExpence;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +53,7 @@ public class Enter_Maintance_cost extends AppCompatActivity {
         //setSupportActionBar(toolbar);
 
         lv = (ListView) findViewById(R.id.lv);
-
+        monthlyExpence=new MonthlyExpence();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -85,8 +105,29 @@ public class Enter_Maintance_cost extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //GET DATA
+
                 String name = nameEditTxt.getText().toString();
                 String cost = costEdittxt.getText().toString();
+
+                item_name.add(name);
+                item_cost.add(cost);
+                System.out.println("List -------<add>----------get itm cost(1)-----u------"+cost+"Name>>>>>>>>>>>>>>>"+name);
+
+                String[]monthName={"Jan.","Feb.","Mar.", "Apr.", "May.", "Jun.", "Jul.",
+                        "Aug.", "Sept.", "Oct.", "Nov.",
+                        "Dec."};
+
+                Calendar c = Calendar.getInstance();
+                int year = c.get(Calendar.YEAR);
+                int month = c.get(Calendar.MONTH);
+
+                System.out.println("Currrent Year>>>>>>>>>>>>>>>>>>"+year);
+                System.out.println("Current Month>>>>>>>>>>>>>>>>>>>>>>"+monthName[month]);
+                Month_year=monthName[month]+Integer.toString(year);
+                System.out.println("Current Month>>>>>>>>>>>>Month_year>>>>>>>>>>"+Month_year );
+
+
+
                 if((name.contains("lst"))|| (name.contains("LST"))) {
                     System.out.println("This is last month balance>>>>>>>>>>>>>>>>");
                     startingbalance=Integer.parseInt(cost);
@@ -98,11 +139,14 @@ public class Enter_Maintance_cost extends AppCompatActivity {
                 //VALIDATE
                 if (name.length() > 0 && name != null) {
                     //save
+
                     crud.save(name, cost);
+
                     nameEditTxt.setText("");
                     costEdittxt.setText("");
                     adapter = new ArrayAdapter<String>(Enter_Maintance_cost.this, android.R.layout.simple_list_item_1, crud.getNames());
                     lv.setAdapter(adapter);
+                 //   fillexpdb(monthlyExpence);
 
                 } else {
                     Toast.makeText(Enter_Maintance_cost.this, "Enter Expance Type Name", Toast.LENGTH_SHORT).show();
@@ -179,6 +223,20 @@ public class Enter_Maintance_cost extends AppCompatActivity {
 
              }
                 remainingcost=startingbalance-total_expnd;
+
+
+
+                monthlyExpence.setStartbal(Integer.toString(startingbalance));
+                monthlyExpence.setTotalexpence(Integer.toString(total_expnd));
+                monthlyExpence.setRemainingbal(Integer.toString(remainingcost));
+                monthlyExpence.setMonth(Month_year);
+                monthlyExpence.setItemname(item_name);
+                monthlyExpence.setItemcost(item_cost);
+                System.out.println("List -----------------get itm cost<last>-----u------"+monthlyExpence.getItemcost()+"Name>>>>>>>>>>>>>>>"+monthlyExpence.getItemname());
+                System.out.println("List -----------------get others   rb<last>:   "+monthlyExpence.getRemainingbal()+"start bl:   "+ monthlyExpence.getStartbal()+"mpnthly          "+monthlyExpence.getTotalexpence()+"     "+monthlyExpence.getMonth());
+
+
+                fillexpdb(monthlyExpence);
                 Intent opa = new Intent(v.getContext(), PdfMainActivity.class);
                 opa.putExtra("pdfString", Pdf_string);
                 opa.putExtra("total_cost", Integer.toString(total_expnd));
@@ -192,5 +250,49 @@ public class Enter_Maintance_cost extends AppCompatActivity {
 
 
         d.show();
+    }
+
+
+    public void fillexpdb(MonthlyExpence monthlyExpence)
+    {
+        Log.i("autolog", "getUserList");
+
+
+        try {
+            String url = "https://postgres2322.herokuapp.com/monthlyex/";
+            Log.i("autolog", "https://postgres2322.herokuapp.com/flatowner/");
+
+            Retrofit retrofit = null;
+            Log.i("autolog", "retrofit");
+
+            if (retrofit == null) {
+                retrofit = new Retrofit.Builder()
+                        .baseUrl(url)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                Log.i("autolog", "build();");
+            }
+
+
+            HerokuService service = retrofit.create(HerokuService.class);
+            Log.i("autolog", " APIService service = retrofit.create(APIService.class);");
+
+
+            Call<MonthlyExpence> call = service.updatemonthlyexp(monthlyExpence);
+            Log.i("autolog", "Call<List<User>> call = service.getUserData();");
+
+            call.enqueue(new Callback<MonthlyExpence>() {
+                @Override
+                public void onResponse(Call <MonthlyExpence> call, Response<MonthlyExpence> response) {
+                    MonthlyExpence user1 = response.body();
+                    Toast.makeText(getApplicationContext(), "Flat Owner Details Updated", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailure(Call<MonthlyExpence> call, Throwable t) {
+
+                }
+            });
+        }catch (Exception e) {Log.i("autolog", "Exception");}
     }
 }

@@ -27,4 +27,15 @@
     <string name="skills">Skills</string>
     <string name="ratings">Star Ratings</string>
     <string name="samplereview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium bibendum sapien, ut euismod massa. Duis convallis sem sed turpis elementum auctor.</string>
+    <string name="title_activity_login">Om Sai DeepaMension-2</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >2 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login_success">"Login Success"</string>
+    <string name="menu_title">Om Sai DeepaMension-2</string>
 </resources>

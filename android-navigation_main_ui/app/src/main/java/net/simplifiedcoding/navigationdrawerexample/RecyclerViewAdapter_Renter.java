@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import net.simplifiedcoding.navigationdrawerexample.R;
 
+import net.simplifiedcoding.navigationdrawerexample.constants.GlobalVariables;
 import net.simplifiedcoding.navigationdrawerexample.models.FlatOwner;
 import net.simplifiedcoding.navigationdrawerexample.models.Renter;
 
@@ -22,6 +23,7 @@ public class RecyclerViewAdapter_Renter extends RecyclerView.Adapter<RecyclerVie
 
     private Context context ;
     private ImageView iv=null;
+    private String mntStatus;
 
     public RecyclerViewAdapter_Renter(Context context, List<Renter> item ) {
         Log.i("autolog", "RecyclerViewAdapter");
@@ -47,7 +49,7 @@ public class RecyclerViewAdapter_Renter extends RecyclerView.Adapter<RecyclerVie
         holder.rname.setText(item.get(position).getRentername());
         holder.rphonno.setText(item.get(position).getRentercontactno());
         holder.remailid.setText(item.get(position).getEmail());
-
+        mntStatus=item.get(position).getRmaintaincepaid();
         // omd2image
 
     }
@@ -83,11 +85,13 @@ public class RecyclerViewAdapter_Renter extends RecyclerView.Adapter<RecyclerVie
 
                     Intent opa = new Intent(v.getContext(), Profile_Renter_Activity.class);
 
+                    System.out.println("GlobalVariables -rule (RecyclerViewAdapter_Renter)>>>>>>>>>>>>>>>>>>     "+GlobalVariables.GetRule());
 
                     opa.putExtra("rentname", rname.getText());
                     opa.putExtra("rentflatnumber", rflatnumber.getText());
                     opa.putExtra("rentphonno", rphonno.getText());
                     opa.putExtra("rentemailid", remailid.getText());
+                    opa.putExtra("mntstatus", mntStatus);
                     //   v.getContext().startActivity(opa);
                     v.getContext().startActivity(opa);
 

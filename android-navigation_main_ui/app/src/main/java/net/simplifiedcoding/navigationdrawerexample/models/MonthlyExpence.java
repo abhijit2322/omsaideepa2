@@ -1,33 +1,35 @@
 /**
- * Generated on Wed Feb 19 10:34:59 UTC 2020 by ObjGen 3.0
+ * Generated on Thu Mar 05 06:45:37 UTC 2020 by ObjGen 3.0
  */
 package net.simplifiedcoding.navigationdrawerexample.models;
- 
+
+import java.util.List;
+
 /**
- * Description for MonthlyExpence class
+ * Description for MonthlyExpence
  */
 public class MonthlyExpence {
  
-   /** Property id */
-   int id;
- 
    /** Property itemname */
-   String itemname;
+   List<String> itemname;
  
-   /** Property itemexpense */
-   String itemexpense;
+   /** Property itemcost */
+   List<String> itemcost;
  
-   /** Property credit */
-   String credit;
+   /** Property startbal */
+   String startbal;
  
-   /** Property debit */
-   String debit;
+   /** Property totalexpence */
+   String totalexpence;
+ 
+   /** Property remainingbal */
+   String remainingbal;
  
    /** Property month */
    String month;
-   
-   /** Property Total Expanse */
-   String totalexp;
+ 
+   /** Property id */
+   int id;
  
    /**
     * Constructor
@@ -35,84 +37,74 @@ public class MonthlyExpence {
    public MonthlyExpence() {
    }
  
-   
-   public MonthlyExpence(int id, String itemname, String itemexpense, String credit, String debit, String month,String totalexp) {
-       this.id = id;
-       this.itemname = itemname;
-       this.itemexpense = itemexpense;
-       this.credit = credit;
-       this.debit = debit;
-       this.month = month;
-       this.totalexp = totalexp;
-   }
-   /**
-    * Gets the id
-    */
-   public int getId() {
-      return this.id;
-   }
- 
-   /**
-    * Sets the id
-    */
-   public void setId(int value) {
-      this.id = value;
-   }
- 
    /**
     * Gets the itemname
     */
-   public String getItemname() {
+   public List<String> getItemname() {
       return this.itemname;
    }
  
    /**
     * Sets the itemname
     */
-   public void setItemname(String value) {
+   public void setItemname(List<String> value) {
       this.itemname = value;
    }
  
    /**
-    * Gets the itemexpense
+    * Gets the itemcost
     */
-   public String getItemexpense() {
-      return this.itemexpense;
+   public List<String> getItemcost() {
+      return this.itemcost;
    }
  
    /**
-    * Sets the itemexpense
+    * Sets the itemcost
     */
-   public void setItemexpense(String value) {
-      this.itemexpense = value;
+   public void setItemcost(List<String> value) {
+      this.itemcost = value;
    }
  
    /**
-    * Gets the credit
+    * Gets the startbal
     */
-   public String getCredit() {
-      return this.credit;
+   public String getStartbal() {
+      return this.startbal;
    }
  
    /**
-    * Sets the credit
+    * Sets the startbal
     */
-   public void setCredit(String value) {
-      this.credit = value;
+   public void setStartbal(String value) {
+      this.startbal = value;
    }
  
    /**
-    * Gets the debit
+    * Gets the totalexpence
     */
-   public String getDebit() {
-      return this.debit;
+   public String getTotalexpence() {
+      return this.totalexpence;
    }
  
    /**
-    * Sets the debit
+    * Sets the totalexpence
     */
-   public void setDebit(String value) {
-      this.debit = value;
+   public void setTotalexpence(String value) {
+      this.totalexpence = value;
+   }
+ 
+   /**
+    * Gets the remainingbal
+    */
+   public String getRemainingbal() {
+      return this.remainingbal;
+   }
+ 
+   /**
+    * Sets the remainingbal
+    */
+   public void setRemainingbal(String value) {
+      this.remainingbal = value;
    }
  
    /**
@@ -128,18 +120,18 @@ public class MonthlyExpence {
    public void setMonth(String value) {
       this.month = value;
    }
-
-/**
- * @return the totalexp
- */
-public String getTotalexp() {
-	return totalexp;
-}
-
-/**
- * @param totalexp the totalexp to set
- */
-public void setTotalexp(String totalexp) {
-	this.totalexp = totalexp;
-}
+ 
+   /**
+    * Gets the id
+    */
+   public int getId() {
+      return this.id;
+   }
+ 
+   /**
+    * Sets the id
+    */
+   public void setId(int value) {
+      this.id = value;
+   }
 }

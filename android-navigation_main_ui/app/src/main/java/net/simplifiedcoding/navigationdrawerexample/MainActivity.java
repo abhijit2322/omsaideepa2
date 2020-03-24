@@ -17,21 +17,69 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import net.simplifiedcoding.navigationdrawerexample.constants.GlobalVariables;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
 
+    public String login_Rule="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Intent intent = getIntent();
+        login_Rule = intent.getStringExtra("loginrule");
+
+        System.out.println("Login Type and rule ......MainActivity.............>>>>>>>>>>>>>>>>>>"+login_Rule);
+        GlobalVariables.SetRule(login_Rule);
+        /*
+        if(GlobalVariables.admin.contains(login_Rule))
+            GlobalVariables.SetRule(login_Rule);
+        else if(GlobalVariables.owner.contains(login_Rule))
+            GlobalVariables.SetRule(login_Rule);
+        else if(GlobalVariables.renter.contains(login_Rule))
+            GlobalVariables.SetRule(login_Rule);
+        else
+            GlobalVariables.SetRule("admin");//need to change later
+*/
+        System.out.println("Login Type and rule ......MainActivity..Get...........>>>>>>>>>>>>>>>>>>"+GlobalVariables.GetRule());
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+
+        if (GlobalVariables.GetRule().contains("admin"))
+        setContentView(R.layout.admin_activity_main);
+       else if (GlobalVariables.GetRule().contains("owner"))
+            setContentView(R.layout.owner_menu_activity_main);
+        else if (GlobalVariables.GetRule().contains("renter"))
+            setContentView(R.layout.renter_menu_activity_main);
+        else {
+           // setContentView(R.layout.admin_activity_main);//need to change later
+            Intent ir = new Intent(getApplicationContext(), NoWhereActivity.class);
+            startActivity(ir);
+
+        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Om sai deepa mension Maintance");
-        permision_check();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        permision_check();
+        DrawerLayout drawer=null;
+        if (GlobalVariables.GetRule().contains("admin"))
+            drawer= (DrawerLayout) findViewById(R.id.admin_drawer_layout);
+        else if (GlobalVariables.GetRule().contains("owner"))
+            drawer= (DrawerLayout) findViewById(R.id.owner_drawer_layout);
+        else if (GlobalVariables.GetRule().contains("renter"))
+            drawer= (DrawerLayout) findViewById(R.id.renter_drawer_layout);
+        else
+        {
+            // setContentView(R.layout.admin_activity_main);//need to change later
+            Intent ir = new Intent(getApplicationContext(), NoWhereActivity.class);
+            startActivity(ir);
+        }
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -41,12 +89,34 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //add this line to display menu1 when the activity is loaded
-        displaySelectedScreen(R.id.nav_menu1);
-    }
 
+        if (GlobalVariables.GetRule().contains("admin"))
+        displaySelectedScreen_admin(R.id.nav_menu1);
+        else if (GlobalVariables.GetRule().contains("owner"))
+            displaySelectedScreen_owner(R.id.nav_menu1);
+       else if (GlobalVariables.GetRule().contains("renter"))
+            displaySelectedScreen_renter(R.id.nav_menu1);
+        else {
+            // setContentView(R.layout.admin_activity_main);//need to change later
+
+            System.out.println("Login Type and rule <MainActivity>....  unknown...............");
+            Intent ir = new Intent(getApplicationContext(), NoWhereActivity.class);
+            startActivity(ir);
+
+        }
+    }
+    @Override
+    public boolean onPrepareOptionsMenu (Menu menu) {
+        if (GlobalVariables.GetRule().contains("user")) {
+           // menu.getItem(3).setEnabled(false);
+            // You can also use something like:
+            // menu.findItem(R.id.example_foobar).setEnabled(false);
+        }
+        return true;
+    }
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.admin_drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -68,35 +138,36 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void displaySelectedScreen(int itemId) {
+    private void displaySelectedScreen_admin(int itemId) {
 
         //creating fragment object
         Fragment fragment = null;
-
         //initializing the fragment object which is selected
         switch (itemId) {
             case R.id.nav_menu1:
                fragment = new Menu1();
                 break;
-            case R.id.nav_menu2:
+            /*case R.id.nav_menu2:
                 // fragment = new Menu2();
                 Intent j = new Intent(getApplicationContext(), PdfMainActivity.class);
                 startActivity(j);
+                break;*/
+            case R.id.nav_menu7:
+                 Intent i = new Intent(getApplicationContext(), PdfDownload.class);
+                startActivity(i);
                 break;
             case R.id.nav_menu3:
                 // fragment = new Menu3();
      /*           Intent i = new Intent(getApplicationContext(), ActivityItemCreator.class);
                 startActivity(i);*/
-                Intent i = new Intent(getApplicationContext(), Enter_Maintance_cost.class);
-                startActivity(i);
+                Intent ie = new Intent(getApplicationContext(), Enter_Maintance_cost.class);
+                startActivity(ie);
 
                 break;
             case R.id.nav_menu4:
@@ -111,7 +182,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_menu6:
                 //fragment = new Menu6();
-                Intent db = new Intent(getApplicationContext(), Owner_Profile_Activity.class);
+                Intent db = new Intent(getApplicationContext(), SupportListActivity.class);
                 startActivity(db);
                 break;
         }
@@ -123,7 +194,106 @@ public class MainActivity extends AppCompatActivity
             ft.commit();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.admin_drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+    }
+
+    private void displaySelectedScreen_owner(int itemId) {
+
+        //creating fragment object
+        Fragment fragment = null;
+
+        //initializing the fragment object which is selected
+        switch (itemId) {
+            case R.id.nav_menu1:
+                fragment = new Menu1();
+                break;
+
+            case R.id.nav_menu7:
+               // fragment = new Menu7();
+                Intent i = new Intent(getApplicationContext(), PdfDownload.class);
+                startActivity(i);
+                break;
+            /*case R.id.nav_menu2:
+                // fragment = new Menu2();
+                Intent j = new Intent(getApplicationContext(), PdfMainActivity.class);
+                startActivity(j);
+                break;*/
+             case R.id.nav_menu4:
+                //fragment = new Menu4();
+                Intent ir = new Intent(getApplicationContext(), RenterListActivity.class);
+                startActivity(ir);
+                break;
+            case R.id.nav_menu5:
+                //fragment = new Menu5();
+                Intent oi = new Intent(getApplicationContext(), OwnerListActivity.class);
+                startActivity(oi);
+                break;
+            case R.id.nav_menu6:
+                //fragment = new Menu6();
+                Intent db = new Intent(getApplicationContext(), SupportListActivity.class);
+                startActivity(db);
+                break;
+        }
+
+        //replacing the fragment
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.owner_drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+    }
+
+    private void displaySelectedScreen_renter(int itemId) {
+
+        //creating fragment object
+        Fragment fragment = null;
+
+        //initializing the fragment object which is selected
+        switch (itemId) {
+            case R.id.nav_menu1:
+                fragment = new Menu1();
+                break;
+
+            case R.id.nav_menu7:
+                //fragment = new Menu7();
+                Intent i = new Intent(getApplicationContext(), PdfDownload.class);
+                startActivity(i);
+                break;
+            /*case R.id.nav_menu2:
+                // fragment = new Menu2();
+                Intent j = new Intent(getApplicationContext(), PdfMainActivity.class);
+                startActivity(j);
+                break;*/
+
+            case R.id.nav_menu4:
+                //fragment = new Menu4();
+                Intent ir = new Intent(getApplicationContext(), RenterListActivity.class);
+                startActivity(ir);
+                break;
+            case R.id.nav_menu5:
+                //fragment = new Menu5();
+                Intent oi = new Intent(getApplicationContext(), OwnerListActivity.class);
+                startActivity(oi);
+                break;
+            case R.id.nav_menu6:
+                //fragment = new Menu6();
+                Intent db = new Intent(getApplicationContext(), SupportListActivity.class);
+                startActivity(db);
+                break;
+        }
+
+        //replacing the fragment
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.renter_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
 
@@ -136,7 +306,24 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
 
         //calling the method displayselectedscreen and passing the id of selected menu
-        displaySelectedScreen(item.getItemId());
+        //displaySelectedScreen_admin(item.getItemId());
+
+        if (GlobalVariables.GetRule().contains("admin"))
+            displaySelectedScreen_admin(item.getItemId());
+        else if (GlobalVariables.GetRule().contains("owner"))
+              displaySelectedScreen_owner(item.getItemId());
+        else if (GlobalVariables.GetRule().contains("renter"))
+            displaySelectedScreen_renter(item.getItemId());
+        else {
+            // setContentView(R.layout.admin_activity_main);//need to change later
+
+            System.out.println("Login Type and rule <MainActivity>....  unknown...............");
+            Intent ir = new Intent(getApplicationContext(), NoWhereActivity.class);
+            startActivity(ir);
+
+        }
+
+
         //make this method blank
         return true;
     }
@@ -176,12 +363,4 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public static class PdfDisplayActivity extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_pdf_display);
-        }
-    }
 }

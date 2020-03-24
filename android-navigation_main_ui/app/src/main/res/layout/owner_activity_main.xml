@@ -19,6 +19,7 @@
         android:id="@+id/flatownerimage"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="10dp" />
 
@@ -27,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name_string"
+        android:layout_marginLeft="20dp"
         android:textSize="20sp" />
 
     <TextView
@@ -34,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
+        android:layout_marginLeft="20dp"
         android:text="@string/profession_string"
         android:textSize="10sp" />
     <TextView
@@ -41,12 +44,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/flatnumber"
+        android:layout_marginLeft="20dp"
         android:text="@string/profession_string"
         android:textSize="10sp" />
     <TextView
         android:id="@+id/owner_email_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_below="@+id/owner_phone_number"
         android:text="@string/profession_string"
         android:textSize="10sp" />

@@ -16,7 +16,7 @@ public class CRUD {
     public void save(String name,String cost)
     {
         String total_string="For "+name+" Cost in RS = "+cost+"/-";
-        String total="677";
+
        names.add(total_string);
       // names.add("Totsl"+total);
 

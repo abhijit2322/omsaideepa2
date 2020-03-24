@@ -19,6 +19,7 @@
         android:id="@+id/flatrentimage"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="10dp" />
 
@@ -26,6 +27,7 @@
         android:id="@+id/rentname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:text="@string/name_string"
         android:textSize="20sp" />
 
@@ -34,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
+        android:layout_marginLeft="20dp"
         android:text="@string/profession_string"
         android:textSize="10sp" />
     <TextView
@@ -41,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rentflatnumber"
+        android:layout_marginLeft="20dp"
         android:text="@string/profession_string"
         android:textSize="10sp" />
     <TextView
@@ -48,6 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rent_phone_number"
+        android:layout_marginLeft="20dp"
         android:text="@string/profession_string"
         android:textSize="10sp" />
 
