@@ -3,25 +3,26 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_menu1"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Help" />
-        <!--<item
-            android:id="@+id/nav_menu2"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Monthly pdf report" />-->
+            android:id="@+id/nav_menu_rent1"
+            android:icon="@mipmap/menu_list"
+            android:title="Logout" />
         <item
-            android:id="@+id/nav_menu4"
-            android:icon="@mipmap/ic_launcher"
+            android:id="@+id/nav_menu_rent2"
+            android:icon="@mipmap/menu_list"
+            android:title="Monthly pdf report" />
+        <item
+            android:id="@+id/nav_menu_rent3"
+            android:icon="@mipmap/menu_list"
             android:title="Renter List" />
         <item
-            android:id="@+id/nav_menu5"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Owner List" />
-        <item
-            android:id="@+id/nav_menu6"
-            android:icon="@mipmap/ic_launcher"
+            android:id="@+id/nav_menu_rent4"
+            android:icon="@mipmap/menu_list"
             android:title="Support Team" />
+
+        <item
+            android:id="@+id/nav_menu_rent_logout"
+            android:icon="@mipmap/menu_list"
+            android:title="Logout" />
 
     </group>
 

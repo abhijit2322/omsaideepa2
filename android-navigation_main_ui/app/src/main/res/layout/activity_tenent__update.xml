@@ -2,12 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/omd2"
     >
 
 
     <TextView
         android:id="@+id/tenantname"
         android:layout_width="fill_parent"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
         android:layout_height="50dp"
         android:textSize="25dp"
         android:text="Enter Tenanent Name" />
@@ -17,6 +21,9 @@
         android:layout_width="fill_parent"
         android:layout_height="47dp"
         android:inputType="textPersonName"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
         android:layout_below="@+id/tenantname"
         android:hint="Enter Tenent Name" />
 
@@ -25,13 +32,19 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
         android:layout_below="@+id/e_tenantname"
-        android:text="Enter Owner Flatno" />
+        android:text="Enter Rented Flatno" />
 
     <EditText
         android:id="@+id/e_ownerflatno_no"
         android:layout_width="fill_parent"
         android:layout_height="47dp"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
         android:layout_below="@+id/e_ownerflatno"
         android:inputType="none"
         android:editable="false"
@@ -41,31 +54,43 @@
         android:id="@+id/e_renter_ph"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
         android:textSize="25dp"
         android:layout_below="@+id/e_ownerflatno_no"
-        android:text="Enter Renter Phone Number" />
+        android:text="Enter Tenant Phone Number" />
 
     <EditText
         android:id="@+id/e_renter_ph_no"
         android:layout_width="fill_parent"
         android:layout_height="47dp"
         android:inputType="textPersonName"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
         android:layout_below="@+id/e_renter_ph"
-        android:hint="Enter Renter Phone Number" />
+        android:hint="Enter Tanent Phone Number" />
 
     <TextView
         android:id="@+id/e_renter_emails"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
         android:layout_below="@+id/e_renter_ph_no"
-        android:text="Enter Renter Email ID" />
+        android:text="Enter Tanent Email ID" />
 
     <EditText
         android:id="@+id/e_renter_email"
         android:layout_width="fill_parent"
         android:layout_height="47dp"
         android:inputType="textPersonName"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
         android:layout_below="@+id/e_renter_emails"
         android:hint="Enter Owner Email ID" />
 

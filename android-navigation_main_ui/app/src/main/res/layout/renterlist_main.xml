@@ -3,6 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
+    android:background="@drawable/omd2"
+    android:textStyle="bold"
+    android:textColorHint="#00f"
+    android:textColor="#00f"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
    <!-- tools:context="com.example.dd.retrofit1.MainActivity">-->
@@ -11,6 +15,9 @@
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
         android:scrollbars="vertical" />
 
 </LinearLayout>

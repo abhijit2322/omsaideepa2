@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/omd2"
     >
     <ImageView
         android:layout_width="match_parent"
@@ -22,16 +23,28 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/transparentWhite"/>
+        android:background="@color/transparentWhite"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        />
     <include layout="@layout/profile_app_bar"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        >
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textColorHint="#00f"
+            android:textColor="#00f"
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,7 +52,11 @@
                 android:layout_marginLeft="@dimen/margin10"
                 android:layout_marginRight="@dimen/margin10"
                 android:layout_marginTop="@dimen/margin25"
-                android:layout_marginBottom="@dimen/margin10">
+                android:layout_marginBottom="@dimen/margin10"
+                android:textStyle="bold"
+                android:textColorHint="#00f"
+                android:textColor="#00f"
+                >
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -49,21 +66,51 @@
                     android:paddingRight="@dimen/margin10"
                     android:orientation="vertical"
                     android:id="@+id/name_layout"
-                    android:background="@color/transparentWhiteMed">
+                    android:background="@color/transparentWhiteMed"
+                    android:textStyle="bold"
+                    android:textColorHint="#00f"
+                    android:textColor="#00f"
+                    >
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/owner_name"
                         android:textSize="@dimen/sTitleSub"
-                        android:textColor="@color/textMedHeavy"/>
+                        android:textStyle="bold"
+                        android:textColorHint="#00f"
+                        android:textColor="#00f"/>
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/sTitleSub2"
                         android:textStyle="italic"
                         android:id="@+id/owner_flatnumber"
-                        android:textColor="@color/textMedHeavy"
-                        android:layout_marginTop="@dimen/margin2"/>
+                        android:layout_marginTop="@dimen/margin2"
+                        android:textColorHint="#00f"
+                        android:textColor="#00f"
+                        />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/checkbox_level"
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:text="Maintance paid for this month ?"
+                            android:textStyle="bold"
+                            android:textColorHint="#00f"
+                            android:textColor="#00f"/>
+
+                        <CheckBox
+                            android:id="@+id/maintance_paid_owner"
+                            android:layout_width="129dp"
+                            android:layout_height="50dp"
+                            android:layout_toRightOf="@+id/checkbox_level"
+                            android:textStyle="bold"
+                            android:textColorHint="#00f"
+                            android:textColor="#00f"
+                            />
+                    </RelativeLayout>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -71,11 +118,18 @@
                     android:background="@color/transparentWhiteDark"
                     android:orientation="vertical"
                     android:padding="10dp"
-                    android:layout_below="@+id/name_layout">
+                    android:layout_below="@+id/name_layout"
+                    android:textStyle="bold"
+                    android:textColorHint="#00f"
+                    android:textColor="#00f"
+                    >
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:textStyle="bold"
+                        android:textColorHint="#00f"
+                        android:textColor="#00f">
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -90,18 +144,28 @@
                             android:layout_gravity="center"
                             android:layout_marginLeft="@dimen/margin10"
                             android:textSize="@dimen/sTitleSub3"
-                            android:textColor="@color/black"/>
+                            android:textStyle="bold"
+                            android:textColorHint="#00f"
+                            android:textColor="#00f"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_marginTop="@dimen/margin10">
+                        android:layout_marginTop="@dimen/margin10"
+                        android:textStyle="bold"
+                        android:textColorHint="#00f"
+                        android:textColor="#00f"
+                        >
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:textColorHint="#00f"
+                            android:textColor="#00f"
+                            >
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -112,10 +176,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/sTitleSub3"
-                                android:textColor="@color/black"
                                 android:layout_gravity="center"
                                 android:id="@+id/owner_ch_no"
-                                android:layout_marginLeft="@dimen/margin10"/>
+                                android:layout_marginLeft="@dimen/margin10"
+                                android:textStyle="bold"
+                                android:textColorHint="#00f"
+                                android:textColor="#00f"
+                                />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -123,7 +190,11 @@
                             android:orientation="horizontal"
                             android:layout_marginLeft="@dimen/margin5"
                             android:layout_weight="1"
-                            android:visibility="gone">
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:textColorHint="#00f"
+                            android:textColor="#00f"
+                            >
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -134,10 +205,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/sTitleSub3"
-                                android:textColor="@color/black"
                                 android:id="@+id/owner_ph_no"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/margin5"/>
+                                android:layout_marginLeft="@dimen/margin5"
+                                android:textStyle="bold"
+                                android:textColorHint="#00f"
+                                android:textColor="#00f"
+                                />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -145,7 +219,11 @@
                             android:orientation="horizontal"
                             android:layout_marginLeft="@dimen/margin5"
                             android:layout_weight="1"
-                            android:visibility="gone">
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:textColorHint="#00f"
+                            android:textColor="#00f"
+                            >
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -156,7 +234,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/sTitleSub3"
-                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:textColorHint="#00f"
+                                android:textColor="#00f"
                                 android:id="@+id/owner_ph_no_work"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="@dimen/margin5"/>
@@ -166,7 +246,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_marginTop="@dimen/margin10">
+                        android:layout_marginTop="@dimen/margin10"
+                        android:textStyle="bold"
+                        android:textColorHint="#00f"
+                        android:textColor="#00f">
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -179,7 +262,9 @@
                             android:id="@+id/owner_address"
                             android:text="Bangaore"
                             android:textSize="@dimen/sTitleSub3"
-                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textColorHint="#00f"
+                            android:textColor="#00f"
                             android:layout_gravity="center"
                             android:layout_marginLeft="@dimen/margin10"/>
                     </LinearLayout>
@@ -205,7 +290,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:visibility="gone">
+            android:visibility="gone"
+            android:textStyle="bold"
+            android:textColorHint="#00f"
+            android:textColor="#00f"
+            >
             <com.balysv.materialripple.MaterialRippleLayout
                 android:id="@+id/parent_primary"
                 android:layout_width="match_parent"
@@ -216,7 +305,10 @@
                 app:mrl_rippleAlpha="0.2"
                 app:mrl_rippleColor="@color/rippleColor"
                 app:mrl_rippleOverlay="true"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColorHint="#00f"
+                android:textColor="#00f">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -226,8 +318,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Primary"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColorHint="#00f"
+                        android:textColor="#00f"/>
                 </LinearLayout>
             </com.balysv.materialripple.MaterialRippleLayout>
             <com.balysv.materialripple.MaterialRippleLayout
@@ -240,7 +334,10 @@
                 app:mrl_rippleAlpha="0.2"
                 app:mrl_rippleColor="@color/rippleColor"
                 app:mrl_rippleOverlay="true"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColorHint="#00f"
+                android:textColor="#00f">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -250,7 +347,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Secondary"
-                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textColorHint="#00f"
+                        android:textColor="#00f"
                         android:textSize="15sp" />
                 </LinearLayout>
             </com.balysv.materialripple.MaterialRippleLayout>

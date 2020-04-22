@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/profile_bg"
-        android:src="@mipmap/profile_img"/>
+        android:src="@mipmap/omd2image"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -182,7 +182,7 @@
                 android:layout_width="@dimen/margin70"
                 android:layout_height="@dimen/margin70"
                 android:layout_marginLeft="@dimen/margin20"
-                android:src="@mipmap/profile_img"
+                android:src="@mipmap/omd2image"
                 android:layout_marginTop="@dimen/margin2"
                 android:id="@+id/profile_img"/>
         </RelativeLayout>

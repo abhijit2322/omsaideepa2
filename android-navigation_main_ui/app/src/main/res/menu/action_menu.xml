@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <!--<item
+            android:id="@+id/add" app:showAsAction="always"   android:title="add"/>
+        <item
+            android:id="@+id/reset" app:showAsAction="always|withText" android:title="reset"/>
+        <item
+            android:id="@+id/about" app:showAsAction="never" android:title="about">
+        </item>
+        <item
+            android:id="@+id/exit"  app:showAsAction="never" android:title="exit">
+        </item>-->
+
+        <item
+            android:id="@+id/sendviamail" app:showAsAction="never"   android:title="Send Via Mail"/>
+        <item
+            android:id="@+id/store" app:showAsAction="never" android:title="Store"/>
+        <item
+            android:id="@+id/sharewhatsapp" app:showAsAction="never" android:title="Share with Whatsapp">
+        </item>
+        <item
+            android:id="@+id/sharecontact"  app:showAsAction="never" android:title="Share with Contact">
+        </item>
+    </menu>
+

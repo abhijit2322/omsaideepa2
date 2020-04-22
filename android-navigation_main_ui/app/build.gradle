@@ -5,8 +5,8 @@ android {
     buildToolsVersion "24.0.2"
 
     defaultConfig {
-        applicationId "net.simplifiedcoding.navigationdrawerexample"
-        minSdkVersion 21
+        applicationId "abhijit.osdm2"
+        minSdkVersion 18
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -23,6 +23,7 @@ android {
 }
 
 dependencies {
+    //  annotationProcessor 'androidx.annotation:annotation:1.1.0'
     implementation 'com.android.support:support-annotations:28.0.0'
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -49,7 +50,11 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox
     implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.1'
     // https://mvnrepository.com/artifact/org.swinglabs/pdf-renderer
-   // implementation group: 'org.swinglabs', name: 'pdf-renderer', version: '1.0.5'
+    // implementation group: 'org.swinglabs', name: 'pdf-renderer', version: '1.0.5'
+    // implementation 'com.squareup.retrofit2:retrofit:2.7.0'
+    // implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    // annotationProcessor 'androidx.annotation:annotation:1.1.0'
+    implementation "com.android.support:support-annotations:28.0.0"
 
 
 }
