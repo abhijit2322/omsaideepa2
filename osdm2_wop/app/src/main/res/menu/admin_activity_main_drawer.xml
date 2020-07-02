@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu_admin1"
+            android:icon="@mipmap/menu_list"
+            android:title="About" />
+        <item
+            android:id="@+id/nav_menu_admin2"
+            android:icon="@mipmap/menu_list"
+            android:title=" Enter Monthly Expences" />
+        <item
+            android:id="@+id/nav_menu_admin3"
+            android:icon="@mipmap/menu_list"
+            android:title="Tenant List" />
+        <item
+            android:id="@+id/nav_menu_admin4"
+            android:icon="@mipmap/menu_list"
+            android:title="Owner List" />
+        <item
+            android:id="@+id/nav_menu_admin5"
+            android:icon="@mipmap/menu_list"
+            android:title="Monthly pdf report" />
+        
+        <item
+            android:id="@+id/nav_menu_admin6"
+            android:icon="@mipmap/menu_list"
+            android:title="Support Team" />
+        <item
+            android:id="@+id/nav_menu_admin7"
+            android:icon="@mipmap/menu_list"
+            android:title="Complain Box" />
+        <item
+            android:id="@+id/nav_menu_admin_logout"
+            android:icon="@mipmap/menu_list"
+            android:title="Logout" />
+
+
+
+    </group>
+
+
+</menu>

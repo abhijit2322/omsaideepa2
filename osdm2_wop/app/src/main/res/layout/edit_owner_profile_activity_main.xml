@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@drawable/omd2"
+    android:layout_height="fill_parent"
+    >
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:textSize="25dp"
+        android:text="Enter Owner Name" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="fill_parent"
+        android:layout_height="47dp"
+        android:inputType="textPersonName"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:layout_below="@+id/textView4"
+        android:hint="Enter Owner Name" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:textSize="25dp"
+        android:layout_below="@+id/editText1"
+        android:text="Enter Owner Flatno" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="fill_parent"
+        android:layout_height="47dp"
+        android:inputType="textPersonName"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:layout_below="@+id/textView5"
+        android:hint="Enter Owner Flatno" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:layout_below="@+id/editText2"
+        android:text="Enter Owner Phone Number" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="fill_parent"
+        android:layout_height="47dp"
+        android:inputType="textPersonName"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:layout_below="@+id/textView6"
+        android:hint="Enter Owner Phone Number" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:layout_below="@+id/editText3"
+        android:text="Enter Owner Email ID" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="fill_parent"
+        android:layout_height="47dp"
+        android:inputType="textPersonName"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:layout_below="@+id/textView7"
+        android:hint="Enter Owner Email ID" />
+
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_below="@+id/editText4"
+        android:text="Update" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_below="@+id/editText4"
+        android:layout_toRightOf="@+id/update"
+        android:text="Delete" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_below="@+id/editText4"
+        android:layout_toRightOf="@+id/delete"
+        android:text="Back" />
+
+</RelativeLayout>

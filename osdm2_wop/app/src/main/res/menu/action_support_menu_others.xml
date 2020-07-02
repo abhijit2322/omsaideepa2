@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/support_call_others" app:showAsAction="never" android:title="Call">
+    </item>
+    <item
+        android:id="@+id/support_sms_others" app:showAsAction="never" android:title="SMS">
+    </item>
+    <item
+        android:id="@+id/support_whatsapp_others" app:showAsAction="never" android:title="Whatsapp">
+    </item>
+
+</menu>
+

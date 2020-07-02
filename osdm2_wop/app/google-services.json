@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "187559187063",
+    "firebase_url": "https://owndb-efe56.firebaseio.com",
+    "project_id": "owndb-efe56",
+    "storage_bucket": "owndb-efe56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187559187063:android:4e782fb3d374217f36ec72",
+        "android_client_info": {
+          "package_name": "abhijit.osdm_wop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187559187063-ngj468nj47gi1j4r71mtqp5mot3k0ela.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBryJiWJfVHF__t6ZuiCm6cHDI9VUh188w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187559187063-ngj468nj47gi1j4r71mtqp5mot3k0ela.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

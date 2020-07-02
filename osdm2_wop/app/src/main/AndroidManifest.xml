@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="abhijit.osdm_wop">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+
+    <permission
+        android:name="android.permission.BLUETOOTH"
+        android:label="BLUETOOTH" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="abhijit.osdm_wop.ViewComplains"></activity>
+        <activity android:name="abhijit.osdm_wop.NewsViewActivity" />
+
+        <service
+            android:name="abhijit.osdm_wop.ComplainBoxService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name="abhijit.osdm_wop.ComplainBox" />
+        <activity android:name="abhijit.osdm_wop.UpdateSupportTeam" />
+        <activity android:name="abhijit.osdm_wop.ui.login.SetNewPassword" />
+        <activity android:name="abhijit.osdm_wop.ImageViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="auth"
+                    android:scheme="msal00000000-0000-0000-0000-000000000000" />
+            </intent-filter>
+        </activity>
+        <activity android:name="abhijit.osdm_wop.PdfDownload" />
+        <activity android:name="abhijit.osdm_wop.Menu7" />
+        <!--
+        <activity android:name=".manu7" />
+        <activity android:name=".MonthlyReport" />
+        -->
+        <activity android:name="abhijit.osdm_wop.Tenent_Update_Activity" />
+        <activity android:name="abhijit.osdm_wop.NoWhereActivity" />
+        <activity android:name="abhijit.osdm_wop.ShowWebViewPdf" />
+        <activity android:name="abhijit.osdm_wop.HelpActivity" />
+        <!--
+                <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login"></activity>
+        -->
+        <!--
+        <activity android:name=".Pdf_View_Activity" />
+        <activity android:name=".Pdf_Create_Activity" />
+        -->
+        <activity android:name="abhijit.osdm_wop.Edit_Renter_Profile" />
+        <activity android:name="abhijit.osdm_wop.Profile_Renter_Activity" />
+        <activity
+            android:name="abhijit.osdm_wop.ui.login.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!--
+                android:name=".MainActivity"
+            android:label="@string/app_name"
+            -->
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="abhijit.osdm_wop.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="abhijit.osdm_wop.ActivityItemCreator" />
+        <activity
+            android:name="abhijit.osdm_wop.PdfMainActivity"
+            android:label="Maintance Report Card"> <!-- <activity android:name=".OwnerListActivity" /> -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="abhijit.osdm_wop.DBCheckActivty" />
+        <activity android:name="abhijit.osdm_wop.RenterListActivity" /> <!-- <activity android:name=".PdfDisplayActivity"></activity> -->
+        <activity android:name="abhijit.osdm_wop.OwnerListActivity" /> <!-- <Testing Phase++> -->
+        <activity android:name="abhijit.osdm_wop.RenterListActivity_Test" />
+        <activity android:name="abhijit.osdm_wop.Profile_MainActivity" /> <!-- <activity android:name=".ProfileActivity" /> -->
+        <activity android:name="abhijit.osdm_wop.Owner_Profile_Activity" />
+        <activity android:name="abhijit.osdm_wop.Profile_Owner_Activity" />
+        <activity android:name="abhijit.osdm_wop.Edit_Owner_Profile" />
+        <activity android:name="abhijit.osdm_wop.Enter_Maintance_cost" />
+        <activity android:name="abhijit.osdm_wop.SupportListActivity" />
+    </application>
+
+</manifest>

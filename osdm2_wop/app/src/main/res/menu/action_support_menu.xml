@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/support_add" app:showAsAction="never"   android:title="Add"/>
+<!--    <item
+        android:id="@+id/Update" app:showAsAction="never" android:title="Update"/>-->
+    <item
+        android:id="@+id/support_delete" app:showAsAction="never" android:title="Delete">
+    </item>
+    <item
+        android:id="@+id/support_call" app:showAsAction="never" android:title="Call">
+    </item>
+    <item
+        android:id="@+id/support_sms" app:showAsAction="never" android:title="SMS">
+    </item>
+    <item
+        android:id="@+id/support_whatsapp" app:showAsAction="never" android:title="Whatsapp">
+    </item>
+
+</menu>
+

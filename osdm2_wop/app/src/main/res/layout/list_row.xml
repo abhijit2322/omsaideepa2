@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:textColor="#00f"
+    android:padding="5dip" >
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#00f"
+        android:textSize="17dp" />
+    <TextView
+        android:id="@+id/designation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#00f"
+        android:layout_below="@id/name"
+        android:layout_marginTop="7dp"
+        android:textSize="14dp" />
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#00f"
+        android:layout_alignBaseline="@+id/designation"
+        android:layout_alignBottom="@+id/designation"
+        android:layout_alignParentRight="true"
+        android:textSize="14dp" />
+
+
+    <TextView
+        android:id="@+id/ename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#00f"
+        android:layout_below="@+id/location"
+        android:textStyle="bold"
+        android:textSize="17dp" />
+    <TextView
+        android:id="@+id/edesignation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:layout_below="@id/ename"
+        android:layout_marginTop="7dp"
+        android:textColor="#00f"
+        android:textSize="14dp" />
+    <TextView
+        android:id="@+id/elocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#00f"
+        android:layout_below="@+id/edesignation"
+        android:layout_alignParentRight="true"
+        android:textSize="14dp" />
+
+
+</RelativeLayout>

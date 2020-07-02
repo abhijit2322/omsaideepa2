@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/omd2"
+    >
+
+
+    <TextView
+        android:id="@+id/nameview"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:text="Enter Your Name" />
+
+    <EditText
+        android:id="@+id/nameedit"
+        android:layout_width="fill_parent"
+        android:layout_height="47dp"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/nameview"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:hint="Enter Your Name" />
+
+    <TextView
+        android:id="@+id/flatnoview"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:layout_below="@+id/nameedit"
+        android:text="Enter Your flat-number" />
+
+    <EditText
+        android:id="@+id/flatnoedit"
+        android:layout_width="fill_parent"
+        android:layout_height="47dp"
+        android:layout_below="@+id/flatnoview"
+        android:textStyle="bold"
+        android:inputType="numberDecimal"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:hint="Enter Your flat number" />
+
+    <Spinner
+        android:id="@+id/typespinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/flatnoedit"/>
+
+    <TextView
+        android:id="@+id/complainview"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        android:layout_below="@+id/typespinner"
+        android:text="Describe here " />
+
+    <EditText
+        android:id="@+id/complainedit"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/complainview"
+        android:inputType="none"
+        android:textStyle="bold"
+        android:textColorHint="#00f"
+        android:textColor="#00f"
+        />
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_below="@+id/complainedit"
+        android:text="Submit" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_below="@+id/complainedit"
+        android:layout_toRightOf="@+id/submit"
+        android:text="Back" />
+
+</RelativeLayout>
