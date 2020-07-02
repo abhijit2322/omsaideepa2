@@ -61,51 +61,52 @@ public class OwnerListActivity extends AppCompatActivity {
             finish();
             return(true);
         case R.id.delete:
-            showDialog();
+            //showDialog();
+            delete_dialog();
             if (flatnumberdeleteted!=null) {
                 FlatOwner flatOwner = new FlatOwner();
                 flatOwner.setFlatnumber(flatnumberdeleteted);
+                flatOwner.setApartmentid(AppSettingsData.getApartmentID());
                 DeleteFlatowner(flatOwner);
             }
             System.out.println("Owner list reset pressed");
+            /*Intent ownerli = new Intent(getApplicationContext(), OwnerListActivity.class);
+            getApplicationContext().startActivity(ownerli);
+            finish();*/
 
             return(true);
     }
         return(super.onOptionsItemSelected(item));
     }
-    public void showDialog() {
-        System.out.println("in ..............showDialog");
-        final AlertDialog dialogBuilder = new AlertDialog.Builder(this).create();
-        LayoutInflater inflater = this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.custom_dialog, null);
-        TextView tv = (TextView) dialogView.findViewById(R.id.textView);
+
+    public void delete_dialog()
+    {
+        LayoutInflater factory = LayoutInflater.from(this);
+        final View deleteDialogView = factory.inflate(R.layout.custom_dialog, null);
+        final AlertDialog deleteDialog = new AlertDialog.Builder(this).create();
+        deleteDialog.setView(deleteDialogView);
+        TextView tv = (TextView) deleteDialogView.findViewById(R.id.textView);
         tv.setText("Enter Flat number to be deleted");
-        final EditText editText = (EditText) dialogView.findViewById(R.id.edt_comment);
+        final EditText editText = (EditText) deleteDialogView.findViewById(R.id.edt_comment);
         editText.setHint("Enter Flat number to be deleted");
-        Button button1 = (Button) dialogView.findViewById(R.id.buttonSubmit);
-        Button button2 = (Button) dialogView.findViewById(R.id.buttonCancel);
-        System.out.println("in ..............showDialog on listener");
-        button2.setOnClickListener(new View.OnClickListener() {
+        deleteDialogView.findViewById(R.id.buttonSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
-                if (editText.getText().toString().length() > 1) {
-                    dialogBuilder.dismiss();
-                } else {
-                    dialogBuilder.dismiss();
-                    showDialog();
-                }
-            }
-        });
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                //your business logic
                 flatnumberdeleteted = editText.getText().toString();
+                deleteDialog.dismiss();
+            }
+        });
+        deleteDialogView.findViewById(R.id.buttonCancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteDialog.dismiss();
             }
         });
 
-        dialogBuilder.show();
+        deleteDialog.show();
     }
+
     public void DeleteFlatowner(FlatOwner flatOwner){
      System.out.println("I am here ...<Edit Owner Profile>..DeleteFlatowner-RETROFIT");
     HerokuService apiService = RetrofitClient.getApiService();
