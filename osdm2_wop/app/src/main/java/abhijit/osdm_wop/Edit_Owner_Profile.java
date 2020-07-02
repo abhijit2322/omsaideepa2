@@ -82,6 +82,7 @@ public class Edit_Owner_Profile extends AppCompatActivity {
 
                 Intent oi = new Intent(getApplicationContext(), OwnerListActivity.class);
                 startActivity(oi);
+                finish();
             }
         });
 
@@ -89,6 +90,7 @@ public class Edit_Owner_Profile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent opa = new Intent(v.getContext(), OwnerListActivity.class);
                 v.getContext().startActivity(opa);
+                finish();
             }
             });
 

@@ -1,14 +1,20 @@
 package abhijit.osdm_wop;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import abhijit.osdm_wop.models.FlatOwner;
@@ -26,6 +32,7 @@ public class OwnerListActivity extends AppCompatActivity {
     private LinearLayoutManager layoutManager;
     private List<FlatOwner> userList =null;
     private ImageView iv=null;
+    String flatnumberdeleteted;
 
 
     @Override
@@ -53,13 +60,71 @@ public class OwnerListActivity extends AppCompatActivity {
             getApplicationContext().startActivity(opa);
             finish();
             return(true);
-        case R.id.reset:
+        case R.id.delete:
+            showDialog();
+            if (flatnumberdeleteted!=null) {
+                FlatOwner flatOwner = new FlatOwner();
+                flatOwner.setFlatnumber(flatnumberdeleteted);
+                DeleteFlatowner(flatOwner);
+            }
             System.out.println("Owner list reset pressed");
+
             return(true);
     }
         return(super.onOptionsItemSelected(item));
     }
+    public void showDialog() {
+        System.out.println("in ..............showDialog");
+        final AlertDialog dialogBuilder = new AlertDialog.Builder(this).create();
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+        TextView tv = (TextView) dialogView.findViewById(R.id.textView);
+        tv.setText("Enter Flat number to be deleted");
+        final EditText editText = (EditText) dialogView.findViewById(R.id.edt_comment);
+        editText.setHint("Enter Flat number to be deleted");
+        Button button1 = (Button) dialogView.findViewById(R.id.buttonSubmit);
+        Button button2 = (Button) dialogView.findViewById(R.id.buttonCancel);
+        System.out.println("in ..............showDialog on listener");
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                if (editText.getText().toString().length() > 1) {
+                    dialogBuilder.dismiss();
+                } else {
+                    dialogBuilder.dismiss();
+                    showDialog();
+                }
+            }
+        });
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                flatnumberdeleteted = editText.getText().toString();
+            }
+        });
+
+        dialogBuilder.show();
+    }
+    public void DeleteFlatowner(FlatOwner flatOwner){
+     System.out.println("I am here ...<Edit Owner Profile>..DeleteFlatowner-RETROFIT");
+    HerokuService apiService = RetrofitClient.getApiService();
+        apiService.deleteflatowner(flatOwner).enqueue(new Callback<FlatOwner>() {
+        @Override
+        public void onResponse(Call<FlatOwner> call, Response<FlatOwner> response) {
+            System.out.println("I am here ...<LoginActivity>..GetLoginRule-onResponse");
+            if(response.isSuccessful()) {
+                FlatOwner user1 = response.body();
+                Toast.makeText(getApplicationContext(), "Flat Owner Details Updated", Toast.LENGTH_SHORT).show();
+            }
+        }
+        @Override
+        public void onFailure(Call<FlatOwner>  call, Throwable t) {
+            System.out.println("This in  Failure    GetLoginRule>>>>>. in login activity "+t.getMessage());
+            // response_status=true;
+        }
+    });
+}
     private void getUserList(FlatOwner flatowner) {
        /* Log.i("autolog", "getUserList");
         try {

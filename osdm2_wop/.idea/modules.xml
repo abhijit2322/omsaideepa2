@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/android-navigation_main_ui.iml" filepath="$PROJECT_DIR$/android-navigation_main_ui.iml" group="android-navigation_main_ui" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="android-navigation_main_ui/app" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="osdm2_wop/app" />
+      <module fileurl="file://$PROJECT_DIR$/osdm2_wop.iml" filepath="$PROJECT_DIR$/osdm2_wop.iml" group="osdm2_wop" />
     </modules>
   </component>
 </project>

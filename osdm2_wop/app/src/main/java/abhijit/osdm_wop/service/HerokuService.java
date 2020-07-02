@@ -60,6 +60,9 @@ public interface HerokuService {
     @POST("insertfowner")
     Call<FlatOwner> insertflatowner(@Body FlatOwner flatOwner);
 
+    @POST("deletefowner")
+    Call<FlatOwner> deleteflatowner(@Body FlatOwner flatOwner);
+
     @POST("flatownerstatus")
     Call <String> getFlatStatus(@Body FlatOwner flatOwner);
 
