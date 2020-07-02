@@ -1,10 +1,13 @@
 package abhijit.osdm_wop;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -35,6 +38,28 @@ public class OwnerListActivity extends AppCompatActivity {
         flatowner.setApartmentid(AppSettingsData.getApartmentID());
         getUserList(flatowner);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.owner_action_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) { switch(item.getItemId()) {
+        case R.id.add:
+            System.out.println("Owner list Add pressed");
+            Intent opa = new Intent(getApplicationContext(), Edit_Owner_Profile.class);
+            getApplicationContext().startActivity(opa);
+            finish();
+            return(true);
+        case R.id.reset:
+            System.out.println("Owner list reset pressed");
+            return(true);
+    }
+        return(super.onOptionsItemSelected(item));
+    }
+
     private void getUserList(FlatOwner flatowner) {
        /* Log.i("autolog", "getUserList");
         try {

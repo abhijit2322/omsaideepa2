@@ -57,6 +57,9 @@ public interface HerokuService {
     @POST("updatefowner")
     Call<FlatOwner> updateflatowner(@Body FlatOwner flatOwner);
 
+    @POST("insertfowner")
+    Call<FlatOwner> insertflatowner(@Body FlatOwner flatOwner);
+
     @POST("flatownerstatus")
     Call <String> getFlatStatus(@Body FlatOwner flatOwner);
 

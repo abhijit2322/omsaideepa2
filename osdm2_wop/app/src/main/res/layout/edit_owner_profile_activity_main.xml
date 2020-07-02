@@ -93,13 +93,20 @@
         android:layout_below="@+id/textView7"
         android:hint="Enter Owner Email ID" />
 
-
+    <Button
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_below="@+id/editText4"
+        android:text="Add" />
     <Button
         android:id="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_below="@+id/editText4"
+        android:layout_toRightOf="@+id/add"
         android:text="Update" />
 
     <Button

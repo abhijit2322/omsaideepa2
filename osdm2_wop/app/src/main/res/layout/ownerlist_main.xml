@@ -17,4 +17,5 @@
         android:textColor="#00f"
         android:scrollbars="vertical" />
 
+
 </LinearLayout>

@@ -19,14 +19,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Edit_Owner_Profile extends AppCompatActivity {
-    Button update,delete,back;
+    Button add,update,delete,back;
     EditText foname,fofnumber,focontact,foemail;
     FlatOwner flatOwner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_owner_profile_activity_main);
-
+        add = (Button) findViewById(R.id.add);
         update = (Button) findViewById(R.id.update);
         delete = (Button) findViewById(R.id.delete);
         back = (Button) findViewById(R.id.back);
@@ -62,6 +62,26 @@ public class Edit_Owner_Profile extends AppCompatActivity {
                 System.out.println(""+flatOwner.getOwnername()+" "+flatOwner.getEmail()+" "+flatOwner.getFlatnumber()+" "+flatOwner.getOwnercontactno());
 
                 UpdateFlatowner(flatOwner);
+            }
+        });
+
+        add.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // your handler code here
+                System.out.println("Flatowner Flat number "+fofnumber.getText().toString());
+                flatOwner.setEmail(foemail.getText().toString());
+                flatOwner.setFlatnumber(fofnumber.getText().toString());
+                flatOwner.setOwnercontactno(focontact.getText().toString());
+                flatOwner.setOwnername(foname.getText().toString());
+                flatOwner.setApartmentid(AppSettingsData.getApartmentID());
+
+                Toast.makeText(getApplicationContext(), "add button clicked ", Toast.LENGTH_SHORT).show();
+                System.out.println(""+flatOwner.getOwnername()+" "+flatOwner.getEmail()+" "+flatOwner.getFlatnumber()+" "+flatOwner.getOwnercontactno());
+
+                InsertFlatowner(flatOwner);
+
+                Intent oi = new Intent(getApplicationContext(), OwnerListActivity.class);
+                startActivity(oi);
             }
         });
 
@@ -133,4 +153,26 @@ public class Edit_Owner_Profile extends AppCompatActivity {
             }
         });
     }
+
+    public void InsertFlatowner(FlatOwner flatOwner)
+    {
+     System.out.println("I am here ...<Edit Owner Profile>..GetLoginRule-RETROFIT");
+    HerokuService apiService = RetrofitClient.getApiService();
+        apiService.insertflatowner(flatOwner).enqueue(new Callback<FlatOwner>() {
+        @Override
+        public void onResponse(Call<FlatOwner> call, Response<FlatOwner> response) {
+            System.out.println("I am here ...<LoginActivity>..GetLoginRule-onResponse");
+            if(response.isSuccessful()) {
+                FlatOwner user1 = response.body();
+                Toast.makeText(getApplicationContext(), "Flat Owner Details Inserted", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+        @Override
+        public void onFailure(Call<FlatOwner>  call, Throwable t) {
+            System.out.println("This in  Failure    GetLoginRule>>>>>. in login activity "+t.getMessage());
+            // response_status=true;
+        }
+    });
+}
 }
