@@ -1,5 +1,6 @@
 package abhijit.osdm_wop;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -115,6 +116,7 @@ public class OwnerListActivity extends AppCompatActivity {
         public void onResponse(Call<FlatOwner> call, Response<FlatOwner> response) {
             System.out.println("I am here ...<LoginActivity>..GetLoginRule-onResponse");
             if(response.isSuccessful()) {
+                System.out.println("I am here ...<LoginActivity>..Delete owner-On Success");
                 FlatOwner user1 = response.body();
                 Toast.makeText(getApplicationContext(), "Flat Owner Details Updated", Toast.LENGTH_SHORT).show();
             }
@@ -125,6 +127,7 @@ public class OwnerListActivity extends AppCompatActivity {
             // response_status=true;
         }
     });
+
 }
     private void getUserList(FlatOwner flatowner) {
        /* Log.i("autolog", "getUserList");
@@ -212,5 +215,9 @@ public class OwnerListActivity extends AppCompatActivity {
                 // response_status=true;
             }
         });
+    }
+    public static Intent getInstance(Context context) {
+        System.out.println("Abhijit ----> its in login---getInstance--1");
+        return new Intent(context, OwnerListActivity.class);
     }
 }
