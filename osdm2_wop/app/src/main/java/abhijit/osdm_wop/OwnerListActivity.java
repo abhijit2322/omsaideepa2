@@ -1,6 +1,7 @@
 package abhijit.osdm_wop;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,7 @@ public class OwnerListActivity extends AppCompatActivity {
     private List<FlatOwner> userList =null;
     private ImageView iv=null;
     String flatnumberdeleteted;
+    Context gcontext;
 
 
     @Override
@@ -45,47 +47,50 @@ public class OwnerListActivity extends AppCompatActivity {
         FlatOwner flatowner=new FlatOwner();
         flatowner.setApartmentid(AppSettingsData.getApartmentID());
         getUserList(flatowner);
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.owner_action_menu, menu);
-        return true;
+        if (AppSettingsData.GetRule().contains("admin")) {
+            getMenuInflater().inflate(R.menu.owner_action_menu, menu);
+            return true;
+        }
+        else
+            return false;
     }
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) { switch(item.getItemId()) {
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        boolean from_add=false;
+        switch(item.getItemId()) {
+
         case R.id.add:
             System.out.println("Owner list Add pressed");
+            from_add=true;
             Intent opa = new Intent(getApplicationContext(), Edit_Owner_Profile.class);
             getApplicationContext().startActivity(opa);
             finish();
             return(true);
         case R.id.delete:
-            //showDialog();
             delete_dialog();
-            if (flatnumberdeleteted!=null) {
-                FlatOwner flatOwner = new FlatOwner();
-                flatOwner.setFlatnumber(flatnumberdeleteted);
-                flatOwner.setApartmentid(AppSettingsData.getApartmentID());
-                DeleteFlatowner(flatOwner);
-            }
             System.out.println("Owner list reset pressed");
-            /*Intent ownerli = new Intent(getApplicationContext(), OwnerListActivity.class);
-            getApplicationContext().startActivity(ownerli);
-            finish();*/
-
             return(true);
-    }
-        return(super.onOptionsItemSelected(item));
+            default:
+                return(super.onOptionsItemSelected(item));
+        }
+
+
     }
 
     public void delete_dialog()
     {
         LayoutInflater factory = LayoutInflater.from(this);
-        final View deleteDialogView = factory.inflate(R.layout.custom_dialog, null);
+         View deleteDialogView = factory.inflate(R.layout.custom_dialog,null);
         final AlertDialog deleteDialog = new AlertDialog.Builder(this).create();
-        deleteDialog.setView(deleteDialogView);
+
+         deleteDialog.setView(deleteDialogView);
         TextView tv = (TextView) deleteDialogView.findViewById(R.id.textView);
         tv.setText("Enter Flat number to be deleted");
         final EditText editText = (EditText) deleteDialogView.findViewById(R.id.edt_comment);
@@ -95,13 +100,23 @@ public class OwnerListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //your business logic
                 flatnumberdeleteted = editText.getText().toString();
+                if (flatnumberdeleteted != null) {
+                    FlatOwner flatOwner = new FlatOwner();
+                    flatOwner.setFlatnumber(flatnumberdeleteted);
+                    flatOwner.setApartmentid(AppSettingsData.getApartmentID());
+                    DeleteFlatowner(flatOwner);
+                }
                 deleteDialog.dismiss();
+                updateview();
+
             }
         });
         deleteDialogView.findViewById(R.id.buttonCancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteDialog.dismiss();
+                //deleteDialog.dismiss();
+                deleteDialog.cancel();
+                updateview();
             }
         });
 
@@ -114,77 +129,36 @@ public class OwnerListActivity extends AppCompatActivity {
         apiService.deleteflatowner(flatOwner).enqueue(new Callback<FlatOwner>() {
         @Override
         public void onResponse(Call<FlatOwner> call, Response<FlatOwner> response) {
-            System.out.println("I am here ...<LoginActivity>..GetLoginRule-onResponse");
+            System.out.println("I am here ...<LoginActivity>..DeleteFlatowner-onResponse");
             if(response.isSuccessful()) {
                 System.out.println("I am here ...<LoginActivity>..Delete owner-On Success");
                 FlatOwner user1 = response.body();
                 Toast.makeText(getApplicationContext(), "Flat Owner Details Updated", Toast.LENGTH_SHORT).show();
+                updateview();
             }
         }
         @Override
         public void onFailure(Call<FlatOwner>  call, Throwable t) {
-            System.out.println("This in  Failure    GetLoginRule>>>>>. in login activity "+t.getMessage());
+            System.out.println("This in  Failure    DeleteFlatowner>>>>>. in login activity "+t.getMessage());
+            updateview();
             // response_status=true;
         }
     });
 
+        System.out.println("This in  Failure    DeleteFlatowner>>>>>.last--------------------------------------");
+       // updateview();
+
+}
+public void updateview()
+{
+   // Intent ownerli = new Intent(getApplicationContext(), OwnerListActivity.class);
+  //  getApplicationContext().startActivity(ownerli);
+   // startActivity(getIntent());
+    finish();
+    getIntent();
 }
     private void getUserList(FlatOwner flatowner) {
-       /* Log.i("autolog", "getUserList");
-        try {
-            String url = "https://postgres2322.herokuapp.com/flatowner/";
-            Log.i("autolog", "https://postgres2322.herokuapp.com/flatowner/");
-
-            Retrofit retrofit = null;
-            Log.i("autolog", "retrofit");
-
-            if (retrofit == null) {
-                retrofit = new Retrofit.Builder()
-                        .baseUrl(url)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-                Log.i("autolog", "build();");
-            }
-
-
-            HerokuService service = retrofit.create(HerokuService.class);
-            Log.i("autolog", " APIService service = retrofit.create(APIService.class);");
-
-
-            Call<List<FlatOwner>> call = service.getFlatowner();
-            Log.i("autolog", "Call<List<User>> call = service.getUserData();");
-
-            call.enqueue(new Callback<List<FlatOwner>>() {
-                @Override
-                public void onResponse(Call<List<FlatOwner>> call, Response<List<FlatOwner>> response) {
-                    //Log.i("onResponse", response.message());
-                    Log.i("autolog", "onResponse");
-
-                    userList = response.body();
-                    Log.i("autolog", "List<User> userList = response.body();");
-
-                    RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler);
-                    Log.i("autolog", "RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler);");
-
-                    layoutManager = new LinearLayoutManager(OwnerListActivity.this);
-                    Log.i("autolog", "layoutManager = new LinearLayoutManager(MainActivity.this);");
-                    recyclerView.setLayoutManager(layoutManager);
-                    Log.i("autolog", "recyclerView.setLayoutManager(layoutManager);");
-
-                    RecyclerViewAdapter recyclerViewAdapter =new RecyclerViewAdapter(getApplicationContext(), userList);
-                    Log.i("autolog", "RecyclerViewAdapter recyclerViewAdapter =new RecyclerViewAdapter(getApplicationContext(), userList);");
-                    recyclerView.setAdapter(recyclerViewAdapter);
-                    Log.i("autolog", "recyclerView.setAdapter(recyclerViewAdapter);");
-                }
-
-                @Override
-                public void onFailure(Call<List<FlatOwner>> call, Throwable t) {
-                    Log.i("autolog", t.getMessage());
-                }
-            });
-        }catch (Exception e) {Log.i("autolog", "Exception");}*/
-
-        System.out.println("I am here ...<Owner List Activity>..GetLoginRule-RETROFIT");
+           System.out.println("I am here ...<Owner List Activity>..GetLoginRule-RETROFIT");
         HerokuService apiService = RetrofitClient.getApiService();
         apiService.getFlatowner(flatowner).enqueue(new Callback<List<FlatOwner>>() {
             @Override
@@ -220,4 +194,21 @@ public class OwnerListActivity extends AppCompatActivity {
         System.out.println("Abhijit ----> its in login---getInstance--1");
         return new Intent(context, OwnerListActivity.class);
     }
+
+    @Override
+    protected void onRestart() {
+        System.out.println("Abhijit ----> OnRestart  ---------------Owner List------");
+        super.onRestart();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        super.onActivityResult(requestCode, resultCode, data);
+        System.out.println("Abhijit ----> onActivityResult  ---------------Owner List------");
+        //Check the result and request code here and update ur activity class
+
+    }
+
+
 }

@@ -42,7 +42,7 @@
         android:id="@+id/editText2"
         android:layout_width="fill_parent"
         android:layout_height="47dp"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textStyle="bold"
         android:textColorHint="#00f"
         android:textColor="#00f"
@@ -64,11 +64,11 @@
         android:id="@+id/editText3"
         android:layout_width="fill_parent"
         android:layout_height="47dp"
-        android:inputType="textPersonName"
         android:textStyle="bold"
         android:textColorHint="#00f"
         android:textColor="#00f"
         android:layout_below="@+id/textView6"
+        android:inputType="number"
         android:hint="Enter Owner Phone Number" />
 
     <TextView
