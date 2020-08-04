@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="abhijit.osdm_wop">
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -12,7 +13,6 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
-
 
     <permission
         android:name="android.permission.BLUETOOTH"
@@ -26,18 +26,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="abhijit.osdm_wop.ViewComplains"></activity>
-        <activity android:name="abhijit.osdm_wop.NewsViewActivity" />
+
 
         <service
-            android:name="abhijit.osdm_wop.ComplainBoxService"
+            android:name=".ComplainBoxService"
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name="abhijit.osdm_wop.ComplainBox" />
-        <activity android:name="abhijit.osdm_wop.UpdateSupportTeam" />
-        <activity android:name="abhijit.osdm_wop.ui.login.SetNewPassword" />
-        <activity android:name="abhijit.osdm_wop.ImageViewActivity">
+
+        <activity android:name=".ImageViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -49,31 +46,12 @@
                     android:scheme="msal00000000-0000-0000-0000-000000000000" />
             </intent-filter>
         </activity>
-        <activity android:name="abhijit.osdm_wop.PdfDownload" />
-        <activity android:name="abhijit.osdm_wop.Menu7" />
-        <!--
-        <activity android:name=".manu7" />
-        <activity android:name=".MonthlyReport" />
-        -->
-        <activity android:name="abhijit.osdm_wop.Tenent_Update_Activity" />
-        <activity android:name="abhijit.osdm_wop.NoWhereActivity" />
-        <activity android:name="abhijit.osdm_wop.ShowWebViewPdf" />
-        <activity android:name="abhijit.osdm_wop.HelpActivity" />
-        <!--
-                <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
-        -->
-        <!--
-        <activity android:name=".Pdf_View_Activity" />
-        <activity android:name=".Pdf_Create_Activity" />
-        -->
-        <activity android:name="abhijit.osdm_wop.Edit_Renter_Profile" />
-        <activity android:name="abhijit.osdm_wop.Profile_Renter_Activity" />
+
         <activity
-            android:name="abhijit.osdm_wop.ui.login.LoginActivity"
+            android:name=".Passbook"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
+            <!--.NoActionBar"-->
 
             <!--
                 android:name=".MainActivity"
@@ -87,11 +65,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="abhijit.osdm_wop.MainActivity"
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="abhijit.osdm_wop.ActivityItemCreator" />
+        <activity android:name=".ActivityItemCreator" />
         <activity
-            android:name="abhijit.osdm_wop.PdfMainActivity"
+            android:name=".PdfMainActivity"
             android:label="Maintance Report Card"> <!-- <activity android:name=".OwnerListActivity" /> -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -100,16 +78,49 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="abhijit.osdm_wop.DBCheckActivty" />
-        <activity android:name="abhijit.osdm_wop.RenterListActivity" /> <!-- <activity android:name=".PdfDisplayActivity"></activity> -->
-        <activity android:name="abhijit.osdm_wop.OwnerListActivity" /> <!-- <Testing Phase++> -->
-        <activity android:name="abhijit.osdm_wop.RenterListActivity_Test" />
-        <activity android:name="abhijit.osdm_wop.Profile_MainActivity" /> <!-- <activity android:name=".ProfileActivity" /> -->
-        <activity android:name="abhijit.osdm_wop.Owner_Profile_Activity" />
-        <activity android:name="abhijit.osdm_wop.Profile_Owner_Activity" />
-        <activity android:name="abhijit.osdm_wop.Edit_Owner_Profile" />
-        <activity android:name="abhijit.osdm_wop.Enter_Maintance_cost" />
-        <activity android:name="abhijit.osdm_wop.SupportListActivity" />
+        <activity android:name=".DBCheckActivty" />
+        <activity android:name=".RenterListActivity" /> <!-- <activity android:name=".PdfDisplayActivity"></activity> -->
+        <activity android:name=".OwnerListActivity" /> <!-- <Testing Phase++> -->
+        <activity android:name=".RenterListActivity_Test" />
+        <activity android:name=".Profile_MainActivity" /> <!-- <activity android:name=".ProfileActivity" /> -->
+        <activity android:name=".Owner_Profile_Activity" />
+        <activity android:name=".Profile_Owner_Activity" />
+        <activity android:name=".Edit_Owner_Profile" />
+        <activity android:name=".Enter_Maintance_cost" />
+        <activity android:name=".SupportListActivity" />
+
+
+        <activity android:name=".ViewComplains" />
+        <activity android:name=".NewsViewActivity" />
+        <activity android:name=".PdfDownload" />
+        <activity android:name=".Menu7" />
+        <!--
+        <activity android:name=".manu7" />
+        <activity android:name=".MonthlyReport" />
+        -->
+        <activity android:name=".Tenent_Update_Activity" />
+        <activity android:name=".NoWhereActivity" />
+        <activity android:name=".ShowWebViewPdf" />
+        <activity android:name=".HelpActivity" />
+        <!--
+                <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login"></activity>
+        -->
+        <!--
+        <activity android:name=".Pdf_View_Activity" />
+        <activity android:name=".Pdf_Create_Activity" />
+        -->
+        <activity android:name=".Edit_Renter_Profile" />
+        <activity android:name=".Profile_Renter_Activity" />
+        <activity android:name=".ComplainBox" />
+        <activity android:name=".UpdateSupportTeam" />
+        <activity android:name=".ui.login.SetNewPassword" />
+        <activity android:name=".ui.login.LoginActivity"/>
+
+
+
+
     </application>
 
 </manifest>

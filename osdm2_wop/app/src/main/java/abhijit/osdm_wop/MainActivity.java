@@ -203,6 +203,16 @@ public class MainActivity extends AppCompatActivity
                 startActivity(db1);
                 break;
 
+            case R.id.nav_menu_passbook:
+                 Intent pb = new Intent(getApplicationContext(), Passbook.class);
+                 startActivity(pb);
+                break;
+
+            case R.id.nav_menu_partyhall:
+               // Intent db1 = new Intent(getApplicationContext(), ComplainBox.class);
+               // startActivity(db1);
+                break;
+
             case R.id.nav_menu_admin_logout:
                 //fragment = new Menu6();
                 Intent la = new Intent(getApplicationContext(), LoginActivity.class);
@@ -259,6 +269,15 @@ public class MainActivity extends AppCompatActivity
                 Intent db1 = new Intent(getApplicationContext(), ComplainBox.class);
                 startActivity(db1);
                 break;
+            case R.id.nav_menu_passbook:
+                Intent pb = new Intent(getApplicationContext(), Passbook.class);
+                startActivity(pb);
+                break;
+
+            case R.id.nav_menu_partyhall:
+                // Intent db1 = new Intent(getApplicationContext(), ComplainBox.class);
+                // startActivity(db1);
+                break;
             case R.id.nav_menu_owner_logout:
                 //fragment = new Menu6();
                 Intent la = new Intent(getApplicationContext(), LoginActivity.class);
@@ -310,6 +329,17 @@ public class MainActivity extends AppCompatActivity
                 Intent db1 = new Intent(getApplicationContext(), ComplainBox.class);
                 startActivity(db1);
                 break;
+
+            case R.id.nav_menu_passbook:
+                Intent pb = new Intent(getApplicationContext(), Passbook.class);
+                startActivity(pb);
+                break;
+
+            case R.id.nav_menu_partyhall:
+                // Intent db1 = new Intent(getApplicationContext(), ComplainBox.class);
+                // startActivity(db1);
+                break;
+
             case R.id.nav_menu_rent_logout:
                 //fragment = new Menu6();
                 Intent la = new Intent(getApplicationContext(), LoginActivity.class);

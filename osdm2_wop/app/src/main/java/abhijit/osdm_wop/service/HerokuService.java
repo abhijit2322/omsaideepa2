@@ -1,9 +1,11 @@
 package abhijit.osdm_wop.service;
 
+import abhijit.osdm_wop.Passbook;
 import abhijit.osdm_wop.models.Admin;
 import abhijit.osdm_wop.models.FileDB;
 import abhijit.osdm_wop.models.ImageDB;
 import abhijit.osdm_wop.models.MonthlyExpence;
+import abhijit.osdm_wop.models.Passbook_model;
 import abhijit.osdm_wop.models.Renter;
 import abhijit.osdm_wop.models.FlatOwner;
 import abhijit.osdm_wop.models.SuppTable;
@@ -116,6 +118,13 @@ public interface HerokuService {
     @POST("downloadimage")
     //Call<List<ImageDB>> downloadImage(@Body ImageDB imagedb);
     Call<ImageDB> downloadImage(@Body ImageDB imagedb);
+
+
+
+    @POST("getpassbook")
+    Call <List<Passbook_model>> getpassbook(@Body Passbook_model passbook);
+    @POST("putpassbook")
+    Call <String> setpassbook(@Body Passbook_model passbook);
 
 
 }

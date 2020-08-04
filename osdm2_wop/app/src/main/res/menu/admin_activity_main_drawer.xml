@@ -32,6 +32,14 @@
             android:icon="@mipmap/menu_list"
             android:title="Complain Box" />
         <item
+            android:id="@+id/nav_menu_passbook"
+            android:icon="@mipmap/menu_list"
+            android:title="Passbook" />
+        <item
+            android:id="@+id/nav_menu_partyhall"
+            android:icon="@mipmap/menu_list"
+            android:title="Part Hall book" />
+        <item
             android:id="@+id/nav_menu_admin_logout"
             android:icon="@mipmap/menu_list"
             android:title="Logout" />

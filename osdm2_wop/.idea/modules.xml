@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="osdm2_wop/app" />
+      <module fileurl="file://$PROJECT_DIR$/omsaideepa2-osdm2_wop.iml" filepath="$PROJECT_DIR$/omsaideepa2-osdm2_wop.iml" group="osdm2_wop" />
       <module fileurl="file://$PROJECT_DIR$/osdm2_wop.iml" filepath="$PROJECT_DIR$/osdm2_wop.iml" group="osdm2_wop" />
+      <module fileurl="file://$PROJECT_DIR$/app/osdm2_wop-app.iml" filepath="$PROJECT_DIR$/app/osdm2_wop-app.iml" group="osdm2_wop/app" />
     </modules>
   </component>
 </project>
