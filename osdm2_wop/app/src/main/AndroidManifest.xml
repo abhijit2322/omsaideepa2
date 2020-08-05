@@ -33,7 +33,6 @@
             android:enabled="true"
             android:exported="true" />
 
-
         <activity android:name=".ImageViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -46,12 +45,13 @@
                     android:scheme="msal00000000-0000-0000-0000-000000000000" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".Passbook"
+            android:name=".PartyHallBooking"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme">
-            <!--.NoActionBar"-->
+
+            <!-- .NoActionBar" -->
+
 
             <!--
                 android:name=".MainActivity"
@@ -88,8 +88,6 @@
         <activity android:name=".Edit_Owner_Profile" />
         <activity android:name=".Enter_Maintance_cost" />
         <activity android:name=".SupportListActivity" />
-
-
         <activity android:name=".ViewComplains" />
         <activity android:name=".NewsViewActivity" />
         <activity android:name=".PdfDownload" />
@@ -116,11 +114,8 @@
         <activity android:name=".ComplainBox" />
         <activity android:name=".UpdateSupportTeam" />
         <activity android:name=".ui.login.SetNewPassword" />
-        <activity android:name=".ui.login.LoginActivity"/>
-
-
-
-
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".Passbook"/>
     </application>
 
 </manifest>
